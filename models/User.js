@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
-
 var Schema = mongoose.Schema;
+passportLocalMongoose = require('passport-local-mongoose');
 
 var UserSchema = new Schema({
   name: {
@@ -13,6 +13,9 @@ var UserSchema = new Schema({
    	type: Date
   }
 });
+
+var options = ({missingPasswordError: "Wrong password"});
+UserSchema.plugin(passportLocalMongoose,options);
 
 var User = mongoose.model("User", UserSchema);
 
