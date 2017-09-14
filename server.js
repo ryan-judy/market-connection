@@ -6,6 +6,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require("./models/User.js");
+var helpers = require("./app/utils/helpers.js");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -35,6 +36,10 @@ db.once("open", function() {
 
 app.get("/", function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
+});
+
+app.get("/value", function(req, res) {
+  res.sendFile(__dirname + "/public/value.html");
 });
 
 

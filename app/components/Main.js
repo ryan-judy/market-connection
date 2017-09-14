@@ -27,10 +27,29 @@ var Main = React.createClass({
           </div>
 
           <div className="inner cover">
-            <h1 className="cover-heading">Whats Your Home Worth</h1>
+            <h1 className="cover-heading">Whats Your Home Worth?</h1>
             <p className="lead">Fill out your address to get started.</p>
+            <form>
+            <div className = "row">
+              <div className = "col-md-3">
+              </div>
+                <div className = "col-md-6">
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      data-type="google-autocomplete"
+                      className="form-control text-center"
+                      id="term"
+                      required
+                    />
+                    </div>
+                </div>
+              <div className = "col-md-3">
+              </div>
+              </div>
+              </form>
             <p className="lead">
-              <a href="#" className="btn btn-lg btn-default">Learn more</a>
+              <a href="#" className="btn btn-lg btn-default" onClick = "/value">Get Your Market Analysis</a>
             </p>
           </div>
 
