@@ -38,9 +38,6 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
 
-app.get("/value", function(req, res) {
-  res.sendFile(__dirname + "/public/value.html");
-});
 
 
 // -------------------------------------------------

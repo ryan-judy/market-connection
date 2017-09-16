@@ -27,12 +27,7 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333;
-}
-body {
-  color: #333;
-  text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  background-color: lightgray;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -50,6 +45,100 @@ body {
   /*min-height: 100%;*/
 }
 
+#mainNav {
+  border-color: rgba(0, 0, 0, 0.05);
+  background-color: #222222;
+}
+
+#mainNav .navbar-brand {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+}
+
+#mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
+  color: white;
+}
+
+#mainNav .navbar-toggle {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: black;
+}
+
+#mainNav .navbar-nav > li.nav-item > a.nav-link:focus,
+  #mainNav .navbar-nav > li.nav-item > a.nav-link {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+}
+
+#mainNav .navbar-nav > li.nav-item > a.nav-link:focus:hover,
+    #mainNav .navbar-nav > li.nav-item > a.nav-link:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#mainNav .navbar-nav > li.nav-item > a.nav-link:focus.active,
+    #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
+  color: rgba(255, 255, 255, 0.7) !important;
+  background-color: transparent;
+}
+
+#mainNav .navbar-nav > li.nav-item > a.nav-link:focus.active:hover,
+      #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
+  background-color: transparent;
+}
+
+@media (min-width: 992px) {
+  #mainNav {
+    border-color: rgba(255, 255, 255, 0.3);
+    background-color: transparent;
+  }
+
+  #mainNav .navbar-brand {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
+    color: white;
+  }
+
+  #mainNav .navbar-nav > li.nav-item > a.nav-link,
+      #mainNav .navbar-nav > li.nav-item > a.nav-link:focus {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  #mainNav .navbar-nav > li.nav-item > a.nav-link:hover,
+        #mainNav .navbar-nav > li.nav-item > a.nav-link:focus:hover {
+    color: white;
+  }
+
+  #mainNav.navbar-shrink {
+    border-color: rgba(0, 0, 0, 0.05);
+    background-color: #222222;
+  }
+
+  #mainNav.navbar-shrink .navbar-brand {
+    font-size: 16px;
+    color: white;
+  }
+
+  #mainNav.navbar-shrink .navbar-brand:focus, #mainNav.navbar-shrink .navbar-brand:hover {
+    color: white;
+  }
+
+  #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link,
+        #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
+    color: white;
+  }
+
+  #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:hover,
+          #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
 
 .site-wrapper-inner {
   display: table-cell;
@@ -139,4 +228,58 @@ body {
     vertical-align: middle;
   }
 
+}
+
+
+.home-image {
+  width: 420px;
+}
+
+.location-image {
+  width: 220px;
+}
+
+.text-picture {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.text-picture.text-picture--gray-bg {
+  background-color: #eee;
+}
+.text-picture .text-picture__text h2 {
+  margin-top: 0;
+}
+@media (min-width: 768px) {
+  .text-picture .text-picture__text p:last-child {
+    margin-bottom: 0;
+  }
+}
+.text-picture .text-picture__picture {
+  text-align: center;
+}
+.text-picture .text-picture__picture img {
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 768px) {
+  .row--flex {
+    display: flex;
+  }
+  .row--flex .row--flex__col {
+    align-self: flex-start;
+  }
+  .row--flex .row--flex__col--center {
+    align-self: center;
+  }
+  .row--flex .row--flex__col--bottom {
+    align-self: flex-end;
+  }
+}
+
+.avm-low {
+  display: inline;
+}
+
+.avm-high {
+  display: inline;
 }

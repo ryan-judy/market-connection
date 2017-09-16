@@ -8,7 +8,7 @@ var helpers = {
   runQuery: function(address1, address2) {
     console.log(address1 + address2);
   
-    var queryURL = "https://search.onboard-apis.com/propertyapi/v1.0.0/avm/detail?address1=&"+ address1 + "&address2=" + address2;
+    var queryURL = "https://search.onboard-apis.com/propertyapi/v1.0.0/avm/detail?address1=&8015&address2=" + address2;
     return axios.get(queryURL).then(function(response) {
       console.log(response);
       return response.data.results[0].formatted;

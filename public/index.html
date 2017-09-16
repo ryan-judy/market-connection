@@ -20,7 +20,56 @@
 </head>
 
 <body>
-	<div id="app"></div>
+	   <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="container">
+
+          <div class="masthead clearfix">
+            <div class="container inner">
+              <h3 class="masthead-brand">Market Connection</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="#">Profile</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Whats Your Home Worth?</h1>
+            <p class="lead">Fill out your address to get started.</p>
+            <form>
+            <div class = "row">
+              <div class = "col-md-3">
+              </div>
+                <div class = "col-md-6">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      data-type="google-autocomplete"
+                      class="form-control text-center"
+                      id="term"
+                      required
+                    />
+                    </div>
+                </div>
+              <div class = "col-md-3">
+              </div>
+              </div>
+              </form>
+            <p class="lead">
+              <a class="btn btn-lg btn-default" id="eval">Get Your Market Analysis</a>
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
 	
 	<script src="bundle.js"></script>
 	<script src="./bootstrap/js/bootstrap.min.js"></script>

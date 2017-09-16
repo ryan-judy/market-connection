@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Market Connection</title>
+	
+
+	<link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="./css/style.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">    
+    </script>
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">ADDRESS</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">Home Value</a>
+            </li>   
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Property Details</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#gallery">Recent Sales</a>
+            </li>                     
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Price Trends</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">For Sale</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <div class="container">
+
+<div class="text-picture">
+    <div class="row row--flex">
+          <div class="col-sm-6 text-picture__picture">
+        <img src="./img/home.png" alt="Image" class="img-responsive home-image" />
+      </div>
+      <div class="col-sm-6 row--flex__col--center text-picture__text text-center">
+        <h2>Estimated Home Value Range</h2>
+        <div class = avm>
+        <h3 class = "avm-low">$</h3> - <h3 class = "avm-high">$</h3>
+        </div>
+         <input type="range" min="10" max="1000" step="10" value="300" data-orientation="vertical">
+ 
+      </div>
+    </div>
+</div>
+
+<div class = "row">
+  <div class = "col-sm-12 text-left">
+    <h2>Property Details</h2>
+    <div class="d-flex justify-content-between">
+    <h4 class = "beds">Beds:</h4>
+    <h4 class = "baths">Baths:</h4>
+    <h4 class = "sqft">Square Footage:</h4>
+    </div>
+    <div class="d-flex justify-content-between">
+    <h4 class = "beds">Year Built:</h4>
+    <h4 class = "baths">Acres:</h4>
+    <h4 class = "sqft">Last Sold For:</h4>
+    </div>
+
+  </div>
+</div>
+
+<div class="text-picture">
+    <div class="row row--flex">
+          <div class="col-sm-6 text-picture__picture">
+        <img src="./img/location.png" alt="Image" class="img-responsive location-image" />
+      </div>
+      <div class="col-sm-6 text-center">
+        <h2>Recent Sales Near You</h2>
+       
+      </div>
+  </div>
+</div>
+<div class="text-picture">
+    <div class="row row--flex">
+      <div class="col-sm-6 row--flex__col--center text-picture__text text-center">
+        <h2>Recent Home Sales Price Trends</h2><h4>median average price</h4>
+      </div>
+                <div class="col-sm-6 text-picture__picture">
+        <img src="http://placehold.it/640x340/?text=Image" alt="Image" class="img-responsive home-image" />
+      </div>
+    </div>
+</div>
+
+
+</div>
+
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+	<script src="./js/logic.js"></script>
+
+</body>
+</html>
