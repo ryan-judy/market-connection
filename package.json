@@ -37,7 +37,8 @@
     "react-dom": "^15.6.1",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "sequelize": "^4.8.4"
+    "sequelize": "^4.8.4",
+    "serve-static": "^1.12.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

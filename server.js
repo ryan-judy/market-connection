@@ -1,7 +1,6 @@
 var express = require('express');
-var app = express();
-var passport   = require('passport');
-var session    = require('express-session');
+var passport = require('passport');
+var session = require('express-session');
 var bodyParser = require('body-parser');
 var env = require('dotenv').load();
 var exphbs = require('express-handlebars')
@@ -10,11 +9,15 @@ var methodOverride = require("method-override");
 var app = express();
 var PORT = process.env.PORT || 8080;
 
-var db = require("./models");
+var db = require("./app/models");
+//For Handlebars
+app.set('views', './views')
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-module.exports = exphbs;
+app.engine('hbs', exphbs({
+    extname: '.hbs',
+    defaultLayout: 'main'
+}));
+app.set('view engine', '.hbs');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,9 +30,7 @@ app.use(express.static("./public"));
 app.use(methodOverride("_method"));
 
 
-
-
-require("./controllers/user_controller")(app);
+require("./app/controllers/user_controller")(app);
 
 db.sequelize.sync().then(function() {
     console.log('Nice! Database looks fine');
@@ -38,10 +39,9 @@ db.sequelize.sync().then(function() {
 });
 
 //Routes
-var authRoute = require('./routes/auth.js')(app, passport);
-
+require("./app/routes/auth.js")(app, passport);
 //load passport strategies
-require('./config/passport/passport.js')(passport, db.User);
+require("./app/config/passport/passport.js")(passport, db.user);
  
  
 app.listen(3000, function(err) {

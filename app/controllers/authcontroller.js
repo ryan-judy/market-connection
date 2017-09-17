@@ -3,15 +3,10 @@ var exports = module.exports = {}
 
 exports.signup = function(req,res){
 
-	res.render('signup'); 
+	res.render('index'); 
 
 }
 
-exports.signin = function(req,res){
-
-	res.render('signin'); 
-
-}
 
 exports.value = function(req,res){
 
