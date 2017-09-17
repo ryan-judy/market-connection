@@ -1,0 +1,63 @@
+<div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="container">
+
+          <div class="masthead clearfix">
+            <div class="container inner">
+              <h3 class="masthead-brand">Market Connection</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="#">Profile</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div class="inner cover">
+            <h1 class="cover-heading text-center">Whats Your Home Worth?</h1>
+            <p class="lead text-center">Fill out your address to get started.</p>
+            <form>
+            <div class = "row">
+              <div class = "col-md-2">
+              </div>
+                <div class = "col-md-8">
+                  <div class="form-group">
+                    <input id="address" class="form-control places-autocomplete text-center" type="text" placeholder="Enter a location" data-places="input" name="address" autocomplete="address-line1">
+                    </div>
+                </div>
+              <div class = "col-md-2">
+              </div>
+              </div>
+                </form method="POST" action="/" >
+            <p class="lead">
+              <input type="submit" class="btn btn-primary btn-block" value="GO" id="eval" data-toggle="modal" data-target="#exampleModal" data-places="submit">
+            </p>
+          </div>
+
+        
+      </div>
+
+    </div>
+
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign Up For Your Market Report</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h2 class = "user-address"></h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Sign Up</button>        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
