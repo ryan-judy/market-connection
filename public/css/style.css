@@ -23,6 +23,7 @@ a:hover {
   background-color: #760606;
   border-color: gray;
   border-radius: 5px;
+  height: 50px;
 
 }
 
@@ -33,11 +34,12 @@ a:hover {
 h1 {
   color: white;
   font-size: 60px;
+  font-weight: lighter;
 }
 
 .lead {
   color: white;
-  font-size: 16px;
+  font-size: 18px;
 }
 /*
  * Base structure
@@ -47,6 +49,7 @@ html,
 body {
   height: 100%;
   background-color: #fafafa;
+  font-family: 'Oxygen', sans-serif;
 }
 
 label,input {
@@ -100,6 +103,13 @@ label,input {
   text-transform: uppercase;
   color: white;
 }
+
+.nav-link-index {
+  text-align: center;
+  border:solid;
+  border-width: 1px;
+}
+
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link:focus,
   #mainNav .navbar-nav > li.nav-item > a.nav-link {
@@ -175,7 +185,7 @@ label,input {
 
 .site-wrapper-inner {
   display: table-cell;
-  vertical-align: top;
+  vertical-align: middle;
 }
 .cover-container {
   margin-right: auto;
@@ -187,7 +197,9 @@ label,input {
   padding: 30px;
 }
 
-
+.form-control {
+  height: 50px;
+}
 /*
  * Header
  */

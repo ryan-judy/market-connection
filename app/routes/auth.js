@@ -8,7 +8,10 @@ module.exports = function(app, passport) {
         failureRedirect: '/'
         }
     ));
+    
     app.get('/value',isLoggedIn, authController.value);
+
+    app.get('/signin', authController.signin);
 
     function isLoggedIn(req, res, next) {
      

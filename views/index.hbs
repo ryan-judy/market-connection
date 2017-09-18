@@ -6,7 +6,7 @@
 
           <div class="masthead clearfix">
             <div class="container inner">
-              <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="indexNav">
+              <nav class="navbar navbar-expand-lg navbar-dark fixed-top mt-4" id="indexNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" action="/logout">Market Connection</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Sign In</a>
+              <a class="nav-link nav-link-index js-scroll-trigger" href="#about" data-toggle="modal" data-target="#exampleModal2" >Sign In</a>
             </li>   
           </ul>
         </div>
@@ -24,8 +24,8 @@
             </div>
           </div>
           <div class="inner cover">
-            <h1 class="cover-heading text-center">Whats Your Home Worth?</h1>
-            <p class="lead text-center">Find our what your home is worth along with neighborhood market statistics.</p>
+            <h1 class="cover-heading text-center">What's Your Home Worth?</h1>
+            <p class="lead text-center">Find out what your home is worth along with neighborhood market statistics.</p>
             <form> 
             <div class = "row">
               <div class = "col-md-2">
@@ -74,6 +74,32 @@
           <div class="form-footer">
             <input class="btn submit" type="submit" value="Sign Up" />
           </div>
+    </form>
+        </div>
+        </div>
+      </div>
+    </div>
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form  id="signin" name="signin" method="post" action="signin">  
+      <div class="form-body">
+      <div class="card-form">
+          <div class="modal-title">Sign In To Your Local Housing Market Report<p class = "user-address"></p>
+           </div>
+          <div class="form-body">
+            <div class="row">
+              <input type="email" placeholder="Email Address*"  class="text" name="email" />
+            </div>
+            <div class="row">
+              <input type="password" placeholder="Password*"  class="text" name="password" />
+            </div>
+          </div>
+          <div class="rule"></div>
+          <div class="form-footer">
+            <input class="btn submit" type="submit" value="Sign In" />
+          </div>
+        </div>
+      </div>
     </form>
         </div>
         </div>
