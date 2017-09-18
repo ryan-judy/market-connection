@@ -3,15 +3,15 @@ var authController = require('../controllers/authcontroller.js');
 module.exports = function(app, passport) {
  
     app.get('/signup', authController.signup);
+
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/value',
         failureRedirect: '/'
         }
     ));
-    
+
     app.get('/value',isLoggedIn, authController.value);
 
-    app.get('/signin', authController.signin);
 
     function isLoggedIn(req, res, next) {
      
@@ -24,5 +24,14 @@ module.exports = function(app, passport) {
     }
 
     app.get('/logout', authController.logout);
+
+    app.get('/signin', authController.signin);
+
+    app.post('/signin', passport.authenticate('local-signin', {
+        successRedirect: '/value',
+ 
+        failureRedirect: '/'
+    }
+    ));
 
 };

@@ -16,7 +16,7 @@ exports.value = function(req,res){
 
 exports.signin = function(req, res) {
  
-    res.render('signin');
+    res.render('index');
  
 }
 
