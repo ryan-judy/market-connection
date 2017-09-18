@@ -10,7 +10,8 @@ module.exports = function(sequelize, Sequelize) {
         },
  
         username: {
-            type: Sequelize.STRING
+            type: Sequelize.STRING,
+            notEmpty: true
         },
  
         address: {
