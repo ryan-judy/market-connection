@@ -34,4 +34,9 @@ module.exports = function(app, passport) {
     }
     ));
 
+    //app.post('/signin', passport.authenticate('local-signin', function(req, res) {
+    //    res.redirect('/value/' + req.user.address);
+    //    console.log(req.user.email);
+    //});
+
 };

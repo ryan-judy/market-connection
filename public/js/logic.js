@@ -9,26 +9,14 @@ function insertUser(event) {
       address: $("#address")
         .val()
         .trim()
-    };
-        console.log(user.address)
+    }
+    $.ajax({url: "/", data: { "address": user.address }, success: function(data){
+        console.log(data.address);
+    }});
     $(".user-address").append(user.address);
 
 };
 
-
-//$(document).on("submit", "#submit"), function() {
-//  // AJAX POST call to the submit route on the server
-//  // This will take the data from the form and send it to the server
-//  $.ajax({
-//    type: "POST",
-//    dataType: "json",
-//    url: "/submit",
-//    data: {
-//      address: $(".user-address").val()
-//    }
-//  })
-//
-//});
 
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
