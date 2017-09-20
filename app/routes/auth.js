@@ -1,5 +1,6 @@
 var authController = require('../controllers/authcontroller.js');
- 
+var apiController = require('../controllers/apicontroller.js');
+
 module.exports = function(app, passport) {
  
     app.get('/signup', authController.signup);
@@ -10,8 +11,7 @@ module.exports = function(app, passport) {
         }
     ));
 
-    app.get('/value',isLoggedIn, authController.value);
-
+    app.get('/value', isLoggedIn, apiController.getValue);
 
     function isLoggedIn(req, res, next) {
      
@@ -36,7 +36,7 @@ module.exports = function(app, passport) {
 
     //app.post('/signin', passport.authenticate('local-signin', function(req, res) {
     //    res.redirect('/value/' + req.user.address);
-    //    console.log(req.user.email);
+    //    console.log(req.user.address);
     //});
 
 };

@@ -11,9 +11,11 @@ function insertUser(event) {
         .trim()
     }
     $.ajax({url: "/", data: { "address": user.address }, success: function(data){
-        console.log(data.address);
     }});
     $(".user-address").append(user.address);
+    $(".user-address-input").attr("value", user.address);
+    $(".user-address-input").attr("name", "address");
+
 
 };
 

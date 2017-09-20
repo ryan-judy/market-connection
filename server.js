@@ -42,7 +42,6 @@ db.sequelize.sync().then(function() {
 require("./app/routes/auth.js")(app, passport);
 //load passport strategies
 require("./app/config/passport/passport.js")(passport, db.user);
-require("./app/routes/apis.js")(app);
  
  
 app.listen(3000, function(err) {

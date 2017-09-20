@@ -50,7 +50,7 @@ module.exports = function(passport, user) {
                             email: email,
                             password: userPassword,
                             address: req.body.address,
-                            username: req.body.firstname
+                            username: req.body.username
                         };
 
                         console.log(req.body.address)

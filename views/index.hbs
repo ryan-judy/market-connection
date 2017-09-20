@@ -26,7 +26,7 @@
           <div class="inner cover">
             <h1 class="cover-heading text-center">What's Your Home Worth?</h1>
             <p class="lead text-center">Find out what your home is worth along with neighborhood market statistics.</p>
-            <form> 
+            <form method="POST" action="/" name="address"> 
             <div class = "row">
               <div class = "col-md-2">
               </div>
@@ -36,7 +36,7 @@
                     </div>
                 </div>
               <div class = "col-md-1">
-                </form method="POST" action="/" name="address" >
+                </form>
             <p class="lead">
               <input type="submit" class="btn btn-primary btn-block" value="GO" id="eval" data-toggle="modal" data-target="#exampleModal" data-places="submit">
             </p>
@@ -57,7 +57,7 @@
     <form id="signup" class="signup" name="signup" method="post" action="/signup">  
       <div class="form-body">
       <div class="card-form">
-          <div class="modal-title">Sign Up For Your Market Report at <p class = "user-address"></p>
+          <div class="modal-title">Sign Up For Your Market Report at <p class = "user-address"></p><input class = "user-address-input" type="hidden">
     </div>
           <div class="form-body">
             <div class="row">

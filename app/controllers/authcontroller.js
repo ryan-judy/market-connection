@@ -1,3 +1,12 @@
+var axios = require("axios");
+//var rangeslider = require("rangeslider.js");
+
+//var userAddress = req.params.address;
+
+axios.defaults.headers.common['Accept'] = "application/json";       
+axios.defaults.headers.common['apikey'] = "1e51e1c38758ccd4c0cc119e92223a3d";
+
+
 var exports = module.exports = {}
 
 
@@ -7,12 +16,6 @@ exports.signup = function(req,res){
 
 }
 
-
-exports.value = function(req,res){
-
-	res.render('value'); 
-
-}
 
 exports.signin = function(req, res) {
  

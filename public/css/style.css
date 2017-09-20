@@ -413,3 +413,9 @@ label,input {
 .card-form .form-footer span {
   margin-left: 8px;
 }
+
+
+#sales {
+  border-radius: 10px;
+  background-color: lightgray;
+}
