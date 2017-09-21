@@ -89,7 +89,7 @@ label,input {
 #mainNav .navbar-brand {
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 21px;
   color: white;
   }
 
@@ -157,7 +157,7 @@ label,input {
   }
 
   #mainNav.navbar-shrink .navbar-brand {
-    font-size: 18px;
+    font-size: 16px;
     -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;

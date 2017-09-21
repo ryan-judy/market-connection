@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="/logout">{{#each eval}}{{this.address}}{{/each}}</a>
+        <a class="navbar-brand js-scroll-trigger" href="/logout">{{#avm}}{{this.address}}{{/avm}}</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,7 +34,7 @@
       </div>
       <div class="col-sm-6 row--flex__col--center text-picture__text text-center">
         <h2>Estimated Home Value Range</h2>
-        {{#each eval}}        
+        {{#avm}}        
         <div class = "avm">
             {{this.value}}
         <h3 class = "avm-low">
@@ -44,7 +44,7 @@
             {{this.high}}</h3>
         </div>
          <input type="range" min="10" max="1000" step="10" value="300" data-orientation="vertical">
-        {{/each}}
+        {{/avm}}
       </div>
     </div>
 </div>
@@ -59,7 +59,7 @@
 </div>
     <div class = "row">
       <div class = "col-sm-12">
-    {{#each details}}
+    {{#details}}
       <div class="d-flex justify-content-between">
         <h4 class = "beds">Beds:</h4>
           {{this.building.rooms.bedstotal}} 
@@ -76,7 +76,7 @@
         <h4 class = "sqft">Last Sold For:</h4>
           {{this.summary.yearbuilt}} 
       </div>
-    {{/each}}
+    {{/details}}
   </div>
 </div>
 </details>
