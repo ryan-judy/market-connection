@@ -11,7 +11,7 @@ module.exports = function(app, passport) {
         }
     ));
 
-    app.get('/value', isLoggedIn, apiController.getValue);
+    app.get('/value', isLoggedIn, apiController.getValue, apiController.getPropertyDetails);
 
     function isLoggedIn(req, res, next) {
      

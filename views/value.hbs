@@ -35,16 +35,19 @@
       <div class="col-sm-6 row--flex__col--center text-picture__text text-center">
         <h2>Estimated Home Value Range</h2>
         {{#avm}}        
-        <div class = "avm">
-            {{this.value}}
-        <h3 class = "avm-low">
-            {{this.low}} - 
-        </h3>
-        <h3 class = "avm-high">
-            {{this.high}}</h3>
-        </div>
+          <h3 class = "avm">
+              {{this.value}}
+          </h3>
+          <h4 class = "avm-low">
+              {{this.low}} - 
+          </h4>
+          <h4 class = "avm-high">
+              {{this.high}}</h3>
+          </h4>
+        {{/avm}}        
+        <div class = "slider text-center">
          <input type="range" min="10" max="1000" step="10" value="300" data-orientation="vertical">
-        {{/avm}}
+        </div>
       </div>
     </div>
 </div>

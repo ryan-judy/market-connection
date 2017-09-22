@@ -30,14 +30,18 @@ getValue: function(req, res) {
 
 getPropertyDetails: function(req, res) {
   var queryURL = "https://search.onboard-apis.com/propertyapi/v1.0.0/avm/detail?address1=4529%20Winona%20Court&address2=Denver%2C%20CO";
+  console.log(queryURL)
   axios.get(queryURL).then(function(response) {
 
     console.log(response.data.property[0].building.rooms.bathstotal);
     console.log(response.data.property[0].building.parking.prkgSpaces);
     console.log(response.data.property[0].building.size.bldgsize);
     console.log(response.data.property[0].summary.yearbuilt);
-    response.data.property[0]
+    return response.data.property[0]
 
+  }).then(function(details) {
+    console.log(details);
+    res.render("value", { details : details });
   });
 }
 
