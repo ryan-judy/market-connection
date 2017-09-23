@@ -36,13 +36,13 @@
         <h2>Estimated Home Value Range</h2>
         {{#avm}}        
           <h3 class = "avm">
-              {{this.value}}
+              {{this.avm.amount.value}}
           </h3>
           <h4 class = "avm-low">
-              {{this.low}} - 
+              {{this.avm.amount.low}} - 
           </h4>
           <h4 class = "avm-high">
-              {{this.high}}</h3>
+              {{this.avm.amount.high}}</h3>
           </h4>
         {{/avm}}        
         <div class = "slider text-center">
@@ -62,7 +62,7 @@
 </div>
     <div class = "row">
       <div class = "col-sm-12">
-    {{#details}}
+    {{#avm}}
       <div class="d-flex justify-content-between">
         <h4 class = "beds">Beds:</h4>
           {{this.building.rooms.bedstotal}} 
@@ -79,7 +79,7 @@
         <h4 class = "sqft">Last Sold For:</h4>
           {{this.summary.yearbuilt}} 
       </div>
-    {{/details}}
+    {{/avm}}
   </div>
 </div>
 </details>
@@ -91,7 +91,9 @@
       </div>
       <div class="col-sm-6 text-center">
         <h2>Recent Sales Near You</h2>
-       
+        {{#each avm.sale.property}}
+          {{this.address.line1}}<br>
+        {{/each}}
       </div>
   </div>
 </div>
@@ -103,7 +105,10 @@
         <h2>Recent Home Sales Price Trends</h2><h4>median average price</h4>
       </div>
                 <div class="col-sm-6 text-picture__picture">
-        <img src="http://placehold.it/640x340/?text=Image" alt="Image" class="img-responsive home-image" />
+                {{#each avm.trends}}
+          {{this.SalesTrend.homesalecount}}<br>
+          {{this.SalesTrend.avgsaleprice}}<br>
+        {{/each}}
       </div>
     </div>
 </div>

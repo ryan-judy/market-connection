@@ -5,44 +5,47 @@ var axios = require("axios");
 axios.defaults.headers.common['Accept'] = "application/json";       
 axios.defaults.headers.common['apikey'] = "1e51e1c38758ccd4c0cc119e92223a3d";
 
+
 module.exports = {
 
-getValue: function(req, res) {
-  var queryURL = "https://search.onboard-apis.com/propertyapi/v1.0.0/avm/detail?address1=4529%20Winona%20Court&address2=Denver%2C%20CO";
-  axios.get(queryURL).then(function(response) {
-    //console.log(response.data.property[0].avm.amount.value);
-    //console.log(response.data.property[0].avm.amount.high);
-    //console.log(response.data.property[0].avm.amount.low);
-    return response.data.property[0].avm.amount;
-
-  }).then(function(data) {
-    console.log(req.user.address)
-    var userAddressTrim = req.user.address;
+apiCall: function(req, res) {
+  var userAddressTrim = req.user.address;
     userAddressTrim = userAddressTrim.split(',');
+      console.log(userAddressTrim)
+
     delete userAddressTrim[3];
+
+var queryURL = "https://search.onboard-apis.com/propertyapi/v1.0.0/avm/detail?address1=" + userAddressTrim[0] + "&address2=" + userAddressTrim[1] + userAddressTrim[2]+"";
+  var queryURL2 = "https://search.onboard-apis.com/propertyapi/v1.0.0/sale/snapshot?address1=" + userAddressTrim[0] + "&address2=" + userAddressTrim[1] + userAddressTrim[2]+"&radius=1";
+    var queryURL3 = "https://search.onboard-apis.com/propertyapi/v1.0.0/salestrend/snapshot?geoid=ZI" + userAddressTrim[4] + "&interval=monthly&startyear=2017&endyear=2017&startmonth=january&endmonth=december";
+  console.log(queryURL);
+  axios.get(queryURL),
+  axios.get(queryURL2),
+  axios.get(queryURL3)
+
+function getAvmData() {
+  return axios.get(queryURL);
+}
+
+function getSaleData() {
+  return axios.get(queryURL2);
+}
+
+function getSaleTrends() {
+  return axios.get(queryURL3);
+}
+
+axios.all([getAvmData(), getSaleData(), getSaleTrends()])
+  .then(axios.spread(function (avm, sale, trends) {
     var userAddress = userAddressTrim.join();
-    userAddress = userAddress.replace(/,\s*$/, "");
+    userAddress = userAddress.replace(/,/g, "");   
+    var data = avm.data.property[0];
     data.address = userAddress;
-    console.log(data);
-    res.render("value", { avm: data });
-  });
-},
-
-getPropertyDetails: function(req, res) {
-  var queryURL = "https://search.onboard-apis.com/propertyapi/v1.0.0/avm/detail?address1=4529%20Winona%20Court&address2=Denver%2C%20CO";
-  console.log(queryURL)
-  axios.get(queryURL).then(function(response) {
-
-    console.log(response.data.property[0].building.rooms.bathstotal);
-    console.log(response.data.property[0].building.parking.prkgSpaces);
-    console.log(response.data.property[0].building.size.bldgsize);
-    console.log(response.data.property[0].summary.yearbuilt);
-    return response.data.property[0]
-
-  }).then(function(details) {
-    console.log(details);
-    res.render("value", { details : details });
-  });
+    data.sale = sale.data;
+    data.trends = trends.data.salestrends;
+    console.log(data)
+    res.render("value", { avm : data } );
+  }))
 }
 
 }; 
