@@ -15,7 +15,7 @@ function insertUser(event) {
     $.ajax({url: "/", data: { "address": user.address }, success: function(data){
     }});
     $(".user-address").prepend(user.address + " " + user.zip);
-    $(".user-address-input").attr("value", user.address + ", " + user.zip);
+    $(".user-address-input").attr("value", user.address + "," + user.zip);
     $(".user-address-input").attr("name", "address");
 
 
@@ -56,6 +56,15 @@ function insertUser(event) {
     }
   });
 
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({address:$('#address').val(),region:'no'},function(results,status){
+      if(status.toLowerCase() == 'ok'){
+        var coords = new google.maps.LatLng(results[0]['geometry']['location'].lat(),results[0]['geometry']['location'].lng());
+       console.log(coords.lat());
+        console.log(coords.lng());
+      }
+    });
+
   
   
 var a,lat,long;
@@ -63,7 +72,7 @@ var zip;
 var markerimg = 'https://i.imgur.com/Qwv4lBZ.png';
 
 function initialize() {
-    document.getElementById("info").style.backgroundImage = "url(https://maps.googleapis.com/maps/api/staticmap?center=cleveland&zoom=15&scale=1&size=700x420&maptype=roadmap&format=png&visual_refresh=true&markers=icon:"+markerimg+"%7Cshadow:true%7Ccleveland)";
+    document.getElementById("info").style.backgroundImage = "url(https://maps.googleapis.com/maps/api/staticmap?center=toronto&zoom=15&scale=1&size=700x420&maptype=roadmap&format=png&visual_refresh=true&markers=icon:"+markerimg+"%7Cshadow:true%7Ctoronto)";
 
     var searchBox = document.getElementById('address');
     var defaultBounds = new google.maps.LatLngBounds(new google.maps.LatLng(43.7182713,-79.3777061));
@@ -90,8 +99,6 @@ function initialize() {
      
 };
 google.maps.event.addDomListener(window, 'load', initialize);
-
-    
 
 
 });

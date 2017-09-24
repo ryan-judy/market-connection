@@ -43,7 +43,7 @@ axios.all([getAvmData(), getSaleData(), getSaleTrends()])
     data.address = userAddress;
     data.sale = sale.data;
     data.trends = trends.data.salestrends;
-    console.log(data)
+        console.log(data)
     res.render("value", { avm : data } );
   }))
 }
