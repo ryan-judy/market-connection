@@ -12,8 +12,8 @@ $('.chart').each(function(index,data) {
     labels: ["Jan", "Feb", "March", "April", "May", "June", "July"],
     datasets: [{
         fillColor: "rgba(220,220,220,0)",
-        strokeColor: "rgba(220,180,0,1)",
-        pointColor: "rgba(220,180,0,1)",
+        strokeColor: "rgb(143,9,9)",
+        pointColor: "rgb(143,9,9)",
         data: dataArr
     }]
 

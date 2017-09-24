@@ -30,15 +30,15 @@
 <section id="value">
 <div class="text-picture">
     <div class="row row--flex">
-          <div class="col-sm-6 text-picture__picture">
+          <div class="col-sm-6 text-picture__picture mt-5">
         <div id="info">
   <a href="#" target="_blank" title="View on Google Maps"></a>
 </div>
       </div>
-      <div class="col-sm-6 row--flex__col--center text-picture__text text-center pr-2">
+      <div class="col-sm-6 row--flex__col--center text-picture__text text-center mt-5">
         <h2>Estimated Home Value Range</h2>
         {{#avm}}        
-          <h3 class = "avm mt-3">
+          <h3 class = "avm my-3">
               ${{this.avm.amount.value}}
           </h3>
           <h4 class = "avm-low">
@@ -57,7 +57,7 @@
 </section>
 <section id="details">
 <div class = "row">
-  <div class = "col-sm-4">
+  <div class = "col-sm-4 mt-5">
         <h2>Property Details</h2>
   </div>
   <div class = "col-sm-8">
@@ -94,15 +94,15 @@
     </div>
     {{/avm}}
   </div>
-</div>
-</details>
+</section>
 <section id="sales">
+  <div class = "container"
 <div class="text-picture">
     <div class="row row--flex">
           <div class="col-sm-6 text-picture__picture">
         <img src="./img/location.png" alt="Image" class="img-responsive location-image" />
       </div>
-      <div class="col-sm-6 text-center pt-5">
+      <div class="col-sm-6 text-center py-5">
         <h2 class="pb-2">Recent Sales Near You</h2>
         {{#each avm.sale.property}}
         <div id="accordion" class = "pr-3" role="tablist">
@@ -139,27 +139,35 @@
       </div>
   </div>
 </div>
+</div>
 </section>
 <section id="trends">
 <div class="text-picture">
-    <div class="row row--flex">
-      <div class="col-sm-6 row--flex__col--center text-picture__text text-center">
+    <div class="row row--flex ml-5">
+      <div class="col-lg-6 row--flex__col--center text-picture__text text-center">
         <h2>Recent Home Sales Price Trends</h2><h4>median average price</h4>
         <div class="text-picture__picture">
-          <img src= "./img/home.png" class="img-responsive location-image">
+          <img src= "./img/home.png" class="img-responsive home-image">
         </div>
       </div>
-                <div class="col-sm-6 text-picture__picture">{{#each avm.trends}}
-                <input type="hidden" class = "chart"
+        <div class="col-lg-6 text-picture__picture">
+          <div class="chart-container" style="position: relative; height:20vh; width:35vw">
+                  <canvas id="canvas"></canvas>
+          </div>
+          {{#each avm.trends}}
+        <input type="hidden" class = "chart"
           value="{{this.SalesTrend.avgsaleprice}}"></input>
         {{/each}}
-        <canvas id="canvas"></canvas>
-      </div>
+        </div>
     </div>
 </div>
 </section>
-
 </div>
+ <div id="footer">
+    <div class="container">
+      <p class="footer-block">Place sticky footer content here.</p>
+    </div>
+  </div>
 
     <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"

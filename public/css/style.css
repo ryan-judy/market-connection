@@ -41,6 +41,7 @@ a {
 
 a:hover {
   color: #8f0909;
+  text-decoration: none;
 }
 
 a:active {
@@ -318,7 +319,7 @@ label,input {
 
 
 .home-image {
-  width: 400px;
+  width: 200px;
 }
 
 .location-image {
@@ -327,14 +328,13 @@ label,input {
 
 .text-picture {
   margin-top: 5%;
-  padding-bottom: 5%;
   text-align: left;
 }
 .text-picture.text-picture--gray-bg {
   background-color: #eee;
 }
 .text-picture .text-picture__text h2 {
-  margin-top: 70px;
+  margin-top: 5px;
 }
 @media (min-width: 768px) {
   .text-picture .text-picture__text p:last-child {
@@ -354,7 +354,7 @@ label,input {
     margin-top: 100px;
   }
   .home-image {
-  width: 280px;
+  width: 20px;
 }
   .text-picture .text-picture__text p:last-child {
     margin-left: 50px;
@@ -387,9 +387,12 @@ label,input {
 
 .submit {
   color: white;
-  background-color: #8f0909;
+  background-color: #760606;
   border-radius: 5px;
+}
 
+.submit:hover {
+    background-color: #8f0909;
 }
 
 .card-form {
@@ -459,6 +462,7 @@ label,input {
 
 #sales {
   background-color: lightgray;
+  margin-top: 50px;
 }
 
 
@@ -503,3 +507,16 @@ label,input {
   padding-top: 50px;
   margin-left: 200px;
 }
+
+#footer {
+    width: 100%;
+    position: relative;
+    height: 50px;
+    background-color: #f5f5f5;
+    color: black;
+  }
+
+.footer-block {
+  color: black;
+      margin: 20px 0;
+    }
