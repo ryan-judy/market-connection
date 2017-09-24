@@ -95,8 +95,37 @@
       <div class="col-sm-6 text-center">
         <h2>Recent Sales Near You</h2>
         {{#each avm.sale.property}}
-          {{this.address.line1}}<br>
-        {{/each}}
+        <div id="accordion" class = "pr-3" role="tablist">
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" href="#collapse{{this.identifier.apn}}" aria-expanded="true" aria-controls="collapseOne">
+          {{this.address.line1}}
+        </a>
+      </h5>
+    </div>
+
+    <div id="collapse{{this.identifier.apn}}" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <div class = "row">
+          <div class = "col-sm-3">
+             Sold: ${{this.sale.amount.saleamt}}
+           </div>
+           <div class = "col-sm-3">
+            SqFt: {{this.building.size.universalsize}}
+          </div>
+          <div class = "col-sm-3">
+            Baths: {{this.building.rooms.bathstotal}}
+          </div>
+          <div class = "col-sm-3">
+            Beds: {{this.building.rooms.beds}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    {{/each}}
       </div>
   </div>
 </div>
@@ -107,11 +136,11 @@
       <div class="col-sm-6 row--flex__col--center text-picture__text text-center">
         <h2>Recent Home Sales Price Trends</h2><h4>median average price</h4>
       </div>
-                <div class="col-sm-6 text-picture__picture">
-                {{#each avm.trends}}
-          {{this.SalesTrend.homesalecount}}<br>
-          {{this.SalesTrend.avgsaleprice}}<br>
+                <div class="col-sm-6 text-picture__picture">{{#each avm.trends}}
+                <input type="hidden" class = "chart"
+          value="{{this.SalesTrend.avgsaleprice}}"></input>
         {{/each}}
+        <canvas id="canvas"></canvas>
       </div>
     </div>
 </div>
@@ -119,6 +148,10 @@
 
 </div>
 
-
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>  
     <script src='https://maps.google.com/maps/api/js?sensor=false'></script>
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+        <script src="./js/value.js"></script>
