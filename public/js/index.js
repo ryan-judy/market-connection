@@ -69,8 +69,8 @@ var zip;
 var markerimg = 'https://i.imgur.com/Qwv4lBZ.png';
 
 function initialize() {
-    document.getElementById("info").style.backgroundImage = "url(https://maps.googleapis.com/maps/api/staticmap?center="+LatLong+"&zoom=15&scale=1&size=700x420&maptype=roadmap&format=png&visual_refresh=true&markers=icon:"+markerimg+"%7Cshadow:true%7C"+LatLong+"&key=AIzaSyBovKQUYSEvna-re7dX78Kp0JifJqW_9dU"+")";
-
+    document.getElementById("info").style.backgroundImage = "url(https://maps.googleapis.com/maps/api/staticmap?center="+LatLong+"&zoom=15&scale=2&size=1200x720&maptype=roadmap&format=png&visual_refresh=true&markers=icon:"+markerimg+"%7Cshadow:true%7C"+LatLong+"&key=AIzaSyBovKQUYSEvna-re7dX78Kp0JifJqW_9dU"+")";
+      $(".container-fluid").css("background-image","url(https://maps.googleapis.com/maps/api/staticmap?center="+LatLong+"&zoom=15&scale=2&size=1200x720&maptype=roadmap&format=png&visual_refresh=true&markers=icon:"+markerimg+"%7Cshadow:true%7C"+LatLong+"&key=AIzaSyBovKQUYSEvna-re7dX78Kp0JifJqW_9dU");
     var searchBox = document.getElementById('address');
     var defaultBounds = new google.maps.LatLngBounds(new google.maps.LatLng(41.486114,-81.728097));
 
