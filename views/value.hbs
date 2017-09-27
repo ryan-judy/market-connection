@@ -69,30 +69,30 @@
     <div class = "row py-3">
     {{#avm}}
       <div class = "col-sm-4">
-        <h4 class = "beds">Beds</h4>
-          {{this.building.rooms.beds}}
+        <h4>Beds</h4>
+          <p class = "specs">{{this.building.rooms.beds}}</p>
       </div>
       <div class = "col-sm-4"> 
-        <h4 class = "baths">Baths</h4>
-          {{this.building.rooms.bathstotal}}
+        <h4>Baths</h4>
+           <p class = "specs">{{this.building.rooms.bathstotal}}</p>
       </div>
       <div class = "col-sm-4">  
-        <h4 class = "sqft">Square Footage</h4>
-          {{this.building.size.bldgsize}} 
+        <h4>Square Footage</h4>
+           <p class = "specs">{{this.building.size.bldgsize}} </p>
       </div>
     </div>
     <div class = "row py-3">
       <div class = "col-sm-4">
-        <h4 class = "beds">Year Built</h4>
-          {{this.summary.yearbuilt}} 
+        <h4>Year Built</h4>
+           <p class = "specs">{{this.summary.yearbuilt}} </p>
       </div>
       <div class = "col-sm-4">
-        <h4 class = "baths">Acres</h4>
-          {{this.building.size.bldgsize}}
+        <h4>Acres</h4>
+           <p class = "specs">{{this.building.size.bldgsize}}</p>
       </div>
       <div class = "col-sm-4">
-        <h4 class = "sqft">Last Sold For</h4>
-          {{this.summary.yearbuilt}}
+        <h4>Last Sold For</h4>
+           <p class = "specs">{{this.summary.yearbuilt}}</p>
       </div>
     </div>
     {{/avm}}
@@ -102,14 +102,22 @@
 </div>
 <section id="sales">
   <div class = "container">
-<div class="text-picture">
+<div class="text-picture component mb-2">
     <div class="row row--flex">
           <div class="col-sm-6 text-picture__picture">
         <img src="./img/location.png" alt="Image" class="img-responsive location-image" />
+                  <div id = "map" style="height: 300px; width: 500px;"></div>
+
       </div>
       <div class="col-sm-6 text-center py-5">
-        <h2 class="pb-2">Recent Sales Near You</h2>
+        <h2 class="pb-2 recent-sales">Recent Sales Near You</h2>
         {{#each avm.sale.property}}
+        <input type="hidden" class="sale-location-name" value="
+          {{this.address.line1}}"></input>
+        <input type="hidden" class="sale-location-lat" value="
+          {{this.location.latitude}}"></input>
+        <input type="hidden" class="sale-location-lon" value="
+            {{this.location.longitude}}"></input>
         <div id="accordion" class = "pr-3" role="tablist">
   <div class="card">
     <div class="card-header" role="tab" id="headingOne">
@@ -124,16 +132,16 @@
       <div class="card-body">
         <div class = "row">
           <div class = "col-sm-3">
-             Sold: ${{this.sale.amount.saleamt}}
+             <h6>Sold: ${{this.sale.amount.saleamt}}</h6>
            </div>
            <div class = "col-sm-3">
-            SqFt: {{this.building.size.universalsize}}
+           <h6> SqFt: {{this.building.size.universalsize}}</h6>
           </div>
           <div class = "col-sm-3">
-            Baths: {{this.building.rooms.bathstotal}}
+            <h6>Baths: {{this.building.rooms.bathstotal}}</h6>
           </div>
           <div class = "col-sm-3">
-            Beds: {{this.building.rooms.beds}}
+           <h6> Beds: {{this.building.rooms.beds}}</h6>
           </div>
         </div>
       </div>
@@ -147,10 +155,10 @@
 </div>
 </section>
 <section id="trends">
-<div class="text-picture">
-    <div class="row row--flex ml-5">
+<div class="text-picture component">
+    <div class="row row--flex ml-5 mx-5">
       <div class="col-lg-6 row--flex__col--center text-picture__text text-center">
-        <h2>Recent Home Sales Price Trends</h2><h4>median average price</h4>
+        <h2 class = "recent-trends">Recent Home Sales Price Trends</h2><h4 class = "subheading">median average price</h4>
         <div class="text-picture__picture">
           <img src= "./img/home.png" class="img-responsive home-image">
         </div>
@@ -170,7 +178,7 @@
 </div>
  <div id="footer">
     <div class="container">
-      <p class="footer-block">Place sticky footer content here.</p>
+      <p class="footer-block">MARKET CONNECTION &#x24B8; Copyright 2017 Ryan Judy.</p>
     </div>
   </div>
 
