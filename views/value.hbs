@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="/logout">{{#avm}}{{this.address}}{{/avm}}</a>
+        <a class="navbar-brand js-scroll-trigger" href="/logout"><img src= "./img/location-marker.png">MARKET CONNECTION</a>
         <input id="address" type="hidden" value="{{#avm}}{{this.location.latitude}},{{this.location.longitude}}{{/avm}}">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -32,8 +32,13 @@
   <div class="container">
 <section id="value">
 <div class="text-picture hero-padding">
+  <div class = "row">
+    <div class = "col-md-12 text-center">
+      <h1>{{#avm}}{{this.address}}{{/avm}}</h1>
+    </div>
+  </div>
     <div class="row row--flex">
-          <div class="col-sm-6 text-picture__picture mt-5">
+          <div class="col-sm-6 text-picture__picture mt-4">
         <div id="info">
   <a href="#" target="_blank" title="View on Google Maps"></a>
 </div>
@@ -41,19 +46,18 @@
       <div class="col-sm-6 row--flex__col--center text-picture__text text-center mt-5">
         <h2>Estimated Home Value Range</h2>
         {{#avm}}        
-          <h3 class = "avm my-3">
-              ${{this.avm.amount.value}}
+          <h2 class = "avm my-3">
+              <input class = "avmInput" type = "hidden" value = "{{this.avm.amount.value}}">
+          </h2>
+          <h3 class = "avm-low">
+             <input class = "avmInputLow" type = "hidden" value = "{{this.avm.amount.low}}">
           </h3>
-          <h4 class = "avm-low">
-              ${{this.avm.amount.low}} - 
-          </h4>
-          <h4 class = "avm-high">
-              ${{this.avm.amount.high}}</h3>
-          </h4>
-        {{/avm}}        
-        <div class = "slider text-center">
-         <input type="range" min="10" max="1000" step="10" value="300" data-orientation="vertical">
-        </div>
+          <h3 class = "avm-high">
+             <input class = "avmInputHigh" type = "hidden" value = "{{this.avm.amount.high}}">
+              </h3>
+          </h3>
+        {{/avm}}
+        <p class = "pt-3">This is your home value based on tax assessments and homes sold near you.</p>
       </div>
     </div>
 </div>
@@ -104,13 +108,13 @@
   <div class = "container">
 <div class="text-picture component mb-2">
     <div class="row row--flex">
-          <div class="col-sm-6 text-picture__picture">
-        <img src="./img/location.png" alt="Image" class="img-responsive location-image" />
+          <div class="col-sm-6 text-picture__picture pt-5">
+                <h2 class="pb-2 recent-sales">Recent Sales Near You</h2>
+                <h4 class = "subheading pb-3">Find the locations and property details of homes that sold within a mile radius of you in the last year. </h4>
                   <div id = "map" style="height: 300px; width: 500px;"></div>
 
       </div>
       <div class="col-sm-6 text-center py-5">
-        <h2 class="pb-2 recent-sales">Recent Sales Near You</h2>
         {{#each avm.sale.property}}
         <input type="hidden" class="sale-location-name" value="
           {{this.address.line1}}"></input>
@@ -122,8 +126,9 @@
   <div class="card">
     <div class="card-header" role="tab" id="headingOne">
       <h5 class="mb-0">
-        <a data-toggle="collapse" href="#collapse{{this.identifier.apn}}" aria-expanded="true" aria-controls="collapseOne">
+        <a data-toggle="collapse" class="toggler" href="#collapse{{this.identifier.apn}}" aria-expanded="true" aria-controls="collapseOne">
           {{this.address.line1}}
+            <i class= "fa fa-caret-down pl-3 rotate"></i>
         </a>
       </h5>
     </div>

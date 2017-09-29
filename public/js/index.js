@@ -48,7 +48,7 @@ function insertUser(event) {
 
   // Collapse the navbar when page is scrolled
   $(window).scroll(function() {
-    if ($("#mainNav").offset().top > 100) {
+    if ($("#mainNav").offset().top > 50) {
 
       $("#mainNav").addClass("navbar-shrink");
     } else {
@@ -66,7 +66,7 @@ var LatLong = $("#address").val();
   console.log(LatLong)
 var a,lat,long;
 var zip;
-var markerimg = 'https://i.imgur.com/Qwv4lBZ.png';
+var markerimg = 'https://imgur.com/Eoughjw.png';
 
 function initialize() {
     document.getElementById("info").style.backgroundImage = "url(https://maps.googleapis.com/maps/api/staticmap?center="+LatLong+"&zoom=15&scale=2&size=1200x720&maptype=roadmap&format=png&visual_refresh=true&markers=icon:"+markerimg+"%7Cshadow:true%7C"+LatLong+"&key=AIzaSyBovKQUYSEvna-re7dX78Kp0JifJqW_9dU"+")";
