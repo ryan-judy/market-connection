@@ -17,6 +17,7 @@ a:hover {
   text-shadow: none; /* Prevent inheritence from `body` */
   background-color: #fff;
   border: 1px solid #333;
+  font-family: 'Oxygen', sans-serif;  
 }
 
 .btn-block {
@@ -33,10 +34,13 @@ a:hover {
 
 p {
   color: #FCFCFC;
+  font-size: 14px;
 }
 
 p.specs {
   color: #FCFCFC;
+  text-shadow: 1px 1px 1px rgba(150, 150, 150, .75);
+  font-weight: lighter;
 }
 
 a {
@@ -60,8 +64,8 @@ a:focus {
 h1 {
   color: #FCFCFC;
   font-size: 48px;
-  font-family: 'Oxygen', sans-serif;  
-  font-weight: bold;
+  font-family: 'Oxygen', sans-serif;
+  text-shadow: 1px 1px 1px rgba(150, 150, 150, .75);  
 
 }
 
@@ -88,15 +92,15 @@ h3 {
 }
 
 h4 {
-  font-size: 21px;
-  font-weight: lighter;
+  font-size: 18px;
   color: #FCFCFC;
   font-family: 'Oxygen', sans-serif;
 }
 
 h4.subheading {
   font-family: 'Merriweather', serif;
-  color: darkslategray;  
+  color: darkslategray;
+  line-height: 28px;  
 }
 
 h5 {
@@ -161,7 +165,7 @@ label,input {
 }
 
 #mainNav .navbar-brand {
-  font-weight: 700;
+  font-weight: bold;
   text-transform: uppercase;
   font-size: 21px;
   color: #FCFCFC;
@@ -239,6 +243,7 @@ label,input {
   -moz-transition: all 0.2s;
   transition: all 0.2s;
     color: #8f0909;
+    font-weight: bold;
   }
 
   #mainNav.navbar-shrink .navbar-brand:focus, #mainNav.navbar-shrink .navbar-brand:hover {
@@ -481,6 +486,21 @@ label,input {
   color: #576366;
   font-size: 14px;
 }
+
+textarea {
+  appearance: none;
+  width: 100%;
+  margin: 0 15px;
+  height: 105px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background: #e8ebed;
+  color: #576366;
+  font-size: 14px;
+}
+
 .card-form .rule {
   height: 2px;
   background: #8f0909;
@@ -557,13 +577,12 @@ label,input {
     width: 100%;
     position: relative;
     height: 50px;
-    background-color: #f5f5f5;
-    color: darkslategray;
+    background-color: #3b4552;
+    color: #3b4552;
   }
 
 .footer-block {
-  color: darkslategray;
-  margin: 20px 0;
+  color: white;
   padding-top:5px;
   font-family: 'Oxygen', sans-serif;    
 }
@@ -620,4 +639,51 @@ label,input {
 #map {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  width: 100%;
+}
+
+#cta {
+    background-color: #f4f4f4;
+
+}
+
+#return-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    top: 5px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
 }

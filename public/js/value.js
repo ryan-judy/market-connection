@@ -1,5 +1,36 @@
 $(document).ready(function() {
 
+ window.sr = ScrollReveal();
+  sr.reveal('.sr-hero', {
+    duration: 600,
+    delay: 200
+  });
+  sr.reveal('.sr-hero-cta', {
+    duration: 600,
+    delay: 200
+  });
+  sr.reveal('.sr-address', {
+    duration: 600,
+    delay: 200
+  }); 
+  sr.reveal('.sr-map', {
+    duration: 600,
+    delay: 200
+  });  
+  sr.reveal('.sr-chart', {
+    duration: 600,
+    delay: 200
+  });    
+  sr.reveal('.sr-home', {
+    duration: 600,
+    delay: 200
+  });    
+  sr.reveal('.sr-button', {
+    duration: 600,
+    delay: 200
+  });      
+
+
 var locations = [
       [1],
       [2],
@@ -38,19 +69,11 @@ console.log(locations)
       zoom: 15,
       center: new google.maps.LatLng(mapLat, mapLon),
       mapTypeId: google.maps.MapTypeId.ROADMAP,
-      styles: [
+      styles: 
+[
     {
-        "featureType": "all",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            }
-        ]
-    },
-    {
-        "featureType": "all",
-        "elementType": "labels.text",
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
         "stylers": [
             {
                 "color": "#444444"
@@ -58,86 +81,20 @@ console.log(locations)
         ]
     },
     {
-        "featureType": "administrative.country",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative.country",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative.province",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative.locality",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            },
-            {
-                "saturation": "-100"
-            },
-            {
-                "lightness": "30"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative.neighborhood",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative.land_parcel",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
         "featureType": "landscape",
         "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            },
-            {
-                "gamma": "0.00"
-            },
-            {
-                "lightness": "74"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "geometry",
         "stylers": [
             {
                 "color": "#ffffff"
+            },
+            {
+                "saturation": "100"
+            },
+            {
+                "lightness": "100"
+            },
+            {
+                "gamma": "10.00"
             }
         ]
     },
@@ -151,94 +108,172 @@ console.log(locations)
         ]
     },
     {
-        "featureType": "road",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            },
-            {
-                "color": "#ff0000"
-            },
-            {
-                "saturation": "-15"
-            },
-            {
-                "lightness": "40"
-            },
-            {
-                "gamma": "1.25"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "road.local",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#971c1c"
-            }
-        ]
-    },
-    {
-        "featureType": "road.local",
-        "elementType": "labels",
+        "featureType": "poi.attraction",
+        "elementType": "geometry.fill",
         "stylers": [
             {
                 "visibility": "on"
             },
             {
-                "saturation": "7"
-            },
-            {
-                "lightness": "15"
-            },
-            {
-                "gamma": "1.95"
-            },
-            {
-                "weight": "1.00"
-            },
-            {
-                "color": "#646464"
+                "color": "#fea0a0"
             }
         ]
     },
     {
-        "featureType": "road.local",
+        "featureType": "poi.business",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#fea0a0"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.government",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#fea0a0"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.medical",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#fea0a0"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#fae7e7"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.place_of_worship",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#fea0a0"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.school",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#fea0a0"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#fea0a0"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 45
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "lightness": "-12"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
         "elementType": "labels.text",
         "stylers": [
             {
-                "color": "#baa1a1"
+                "color": "#000000"
             },
-            {
-                "weight": "1.20"
-            },
-            {
-                "lightness": "12"
-            }
-        ]
-    },
-    {
-        "featureType": "transit",
-        "elementType": "labels",
-        "stylers": [
             {
                 "visibility": "simplified"
             }
         ]
     },
     {
-        "featureType": "transit",
+        "featureType": "road.highway.controlled_access",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#ff0000"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#fbd5d5"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
         "elementType": "labels.icon",
         "stylers": [
             {
@@ -247,38 +282,95 @@ console.log(locations)
         ]
     },
     {
-        "featureType": "transit.line",
-        "elementType": "geometry",
+        "featureType": "road.local",
+        "elementType": "geometry.fill",
         "stylers": [
             {
-                "color": "#ff0000"
+                "visibility": "on"
             },
             {
-                "lightness": "80"
+                "color": "#ffdfdf"
+            },
+            {
+                "lightness": "-3"
             }
         ]
     },
     {
-        "featureType": "transit.station",
-        "elementType": "geometry",
+        "featureType": "road.local",
+        "elementType": "labels.text",
         "stylers": [
             {
-                "color": "#e5e5e5"
+                "visibility": "simplified"
+            },
+            {
+                "color": "#716d6d"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#fec0c0"
+            },
+            {
+                "lightness": "0"
             }
         ]
     },
     {
         "featureType": "water",
-        "elementType": "geometry",
+        "elementType": "all",
         "stylers": [
             {
-                "color": "#efefef"
+                "color": "#86a9d6"
+            },
+            {
+                "visibility": "on"
             }
         ]
     },
     {
         "featureType": "water",
-        "elementType": "labels",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#fba4a4"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.stroke",
         "stylers": [
             {
                 "visibility": "off"
@@ -326,7 +418,27 @@ $('.chart').each(function(index,data) {
 
 }
 
-Chart.defaults.global.animationSteps = 50;
+var unitsArr = [];
+$('.units').each(function(index,data) {
+   var unitplot = $(this).val();
+    unitplot = parseInt(unitplot);
+    unitsArr.push(unitplot);
+    });
+    console.log(unitsArr)
+
+      var barChartData = {
+    labels: ["2016 Q1", "2017 Q2", "2017 Q3", " 2017 Q4", "2016 Q1", "2106 Q2", "2016 Q3", "2016 Q4", "2017 Q1", "2017 Q2", "2017 Q3"],
+    datasets: [{
+        fillColor: "rgba(220,220,220,0)",
+        strokeColor: "rgb(143,9,9)",
+        pointColor: "rgb(143,9,9)",
+        data: unitsArr
+    }]
+
+}
+
+
+Chart.defaults.global.animationSteps = 250;
 Chart.defaults.global.tooltipYPadding = 16;
 Chart.defaults.global.tooltipCornerRadius = 0;
 Chart.defaults.global.tooltipTitleFontStyle = "normal";
@@ -342,6 +454,23 @@ var LineChartDemo = new Chart(ctx).Line(lineChartData, {
     bezierCurve: false,
     scaleShowVerticalLines: false,
     scaleGridLineColor: "black"
+});
+
+var ctxTwo = document.getElementById("canvasTwo").getContext("2d");
+var BarChartDemo = new Chart(ctxTwo).Bar(barChartData, {
+    scales: {
+    xAxes: [{
+                gridLines: {
+                    display:false
+                }
+            }],
+    yAxes: [{
+                gridLines: {
+                    display:false
+                }   
+            }]
+    }
+
 });
 
 $(".toggler").click(function(){

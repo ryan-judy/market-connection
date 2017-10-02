@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
 
+
 $(document).on("click", "#eval", insertUser);
 
 function insertUser(event) {
@@ -17,7 +18,6 @@ function insertUser(event) {
     $(".user-address").prepend(user.address + " " + user.zip);
     $(".user-address-input").attr("value", user.address + "," + user.zip);
     $(".user-address-input").attr("name", "address");
-
 
 };
 
@@ -51,8 +51,12 @@ function insertUser(event) {
     if ($("#mainNav").offset().top > 50) {
 
       $("#mainNav").addClass("navbar-shrink");
+       $('#return-to-top').fadeIn(200);
+       $('.navbar-brand img').attr("src", "./img/location-marker.png")
     } else {
       $("#mainNav").removeClass("navbar-shrink");
+       $('#return-to-top').fadeOut(200);
+       $('.navbar-brand img').attr("src", "./img/location-marker-white.png")
     }
   });
 

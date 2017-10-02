@@ -1,8 +1,10 @@
     <div class="container-fluid">
 
+  <a class="nav-link js-scroll-trigger" href="#value" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="/logout"><img src= "./img/location-marker.png">MARKET CONNECTION</a>
+        <a class="navbar-brand js-scroll-trigger" href="/logout"><img src= "./img/location-marker-white.png">MARKET CONNECTION</a>
         <input id="address" type="hidden" value="{{#avm}}{{this.location.latitude}},{{this.location.longitude}}{{/avm}}">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -33,20 +35,20 @@
 <section id="value">
 <div class="text-picture hero-padding">
   <div class = "row">
-    <div class = "col-md-12 text-center">
+    <div class = "col-md-12 text-center sr-address">
       <h1>{{#avm}}{{this.address}}{{/avm}}</h1>
     </div>
   </div>
     <div class="row row--flex">
-          <div class="col-sm-6 text-picture__picture mt-4">
+          <div class="col-sm-6 text-picture__picture mt-4 sr-hero">
         <div id="info">
   <a href="#" target="_blank" title="View on Google Maps"></a>
 </div>
       </div>
-      <div class="col-sm-6 row--flex__col--center text-picture__text text-center mt-5">
+      <div class="col-sm-6 row--flex__col--center text-picture__text text-center mt-5 sr-hero-cta">
         <h2>Estimated Home Value Range</h2>
         {{#avm}}        
-          <h2 class = "avm my-3">
+          <h2 class = "avm my-2">
               <input class = "avmInput" type = "hidden" value = "{{this.avm.amount.value}}">
           </h2>
           <h3 class = "avm-low">
@@ -54,10 +56,10 @@
           </h3>
           <h3 class = "avm-high">
              <input class = "avmInputHigh" type = "hidden" value = "{{this.avm.amount.high}}">
-              </h3>
           </h3>
+          <h3 class = "mt-5">Confidence Score: {{this.avm.amount.scr}}%</h3>
+            <p>Based on tax assessments and homes sold near you, this is the accuracy of our home evaluation.</p>          
         {{/avm}}
-        <p class = "pt-3">This is your home value based on tax assessments and homes sold near you.</p>
       </div>
     </div>
 </div>
@@ -70,7 +72,7 @@
   <div class = "col-sm-8">
   </div>
 </div>
-    <div class = "row py-3">
+    <div class = "row py-1">
     {{#avm}}
       <div class = "col-sm-4">
         <h4>Beds</h4>
@@ -85,14 +87,14 @@
            <p class = "specs">{{this.building.size.bldgsize}} </p>
       </div>
     </div>
-    <div class = "row py-3">
+    <div class = "row py-1">
       <div class = "col-sm-4">
         <h4>Year Built</h4>
            <p class = "specs">{{this.summary.yearbuilt}} </p>
       </div>
       <div class = "col-sm-4">
         <h4>Acres</h4>
-           <p class = "specs">{{this.building.size.bldgsize}}</p>
+           <p class = "specs">{{this.lot.lotsize1}}</p>
       </div>
       <div class = "col-sm-4">
         <h4>Last Sold For</h4>
@@ -111,7 +113,9 @@
           <div class="col-sm-6 text-picture__picture pt-5">
                 <h2 class="pb-2 recent-sales">Recent Sales Near You</h2>
                 <h4 class = "subheading pb-3">Find the locations and property details of homes that sold within a mile radius of you in the last year. </h4>
-                  <div id = "map" style="height: 300px; width: 500px;"></div>
+                <div class="sr-map">
+                  <div id = "map" style="height: 300px;"></div>
+                </div>
 
       </div>
       <div class="col-sm-6 text-center py-5">
@@ -163,13 +167,13 @@
 <div class="text-picture component">
     <div class="row row--flex ml-5 mx-5">
       <div class="col-lg-6 row--flex__col--center text-picture__text text-center">
-        <h2 class = "recent-trends">Recent Home Sales Price Trends</h2><h4 class = "subheading">median average price</h4>
+        <h2 class = "recent-trends">Recent Home Sales Price Trends</h2><h4 class = "subheading">2017 median average price per month.</h4>
         <div class="text-picture__picture">
-          <img src= "./img/home.png" class="img-responsive home-image">
+          <img src= "./img/home.png" class="img-responsive home-image sr-home">
         </div>
       </div>
         <div class="col-lg-6 text-picture__picture">
-          <div class="chart-container" style="position: relative; height:20vh; width:35vw">
+          <div class="chart-container sr-chart" style="position: relative; height:20vh; width:35vw">
                   <canvas id="canvas"></canvas>
           </div>
           {{#each avm.trends}}
@@ -180,12 +184,82 @@
     </div>
 </div>
 </section>
+<section id="units">
+<div class="text-picture component">
+    <div class="row row--flex ml-5 mx-5">
+      <div class="col-lg-6 text-picture__picture">
+          <div class="chart-container pl-5 sr-chart" style="position: relative; height:20vh; width:35vw">
+                  <canvas id="canvasTwo"></canvas>
+          </div>
+          {{#each avm.units}}
+        <input type="hidden" class = "units"
+          value="{{this.SalesTrend.homesalecount}}"></input>
+        {{/each}}
+        </div>
+      <div class="col-lg-6 row--flex__col--center text-picture__text text-center">
+        <h2 class = "recent-trends">Recent Home Sales Units </h2><h4 class = "subheading">median average price in your zip code.</h4>
+        <div class="text-picture__picture">
+          <img src= "./img/home-graph.png" class="img-responsive home-image sr-home">
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+<section id = "cta">
+  <div class= "row py-4">
+    <div class = "col-md-12 text-center">
+      <h2 class = "recent-sales">Question About Your Home's Value?</h2>
+        <h4 class = "subheading py-1" >Get in contact with one of our local experts.</h4>
+    </div>
+  </div>
+    <div class= "row pb-5">
+      <div class = "col-md-5">
+      </div>
+      <div class = "col-md-2 text-center">   
+         <input type="submit" class="btn btn-primary btn-block sr-button" value="Connect with Us" id="eval" data-toggle="modal" data-target="#contactForm">
+      <div class = "col-md-5">
+      </div>         
+    </div>
+  </div>
+</section>
 </div>
  <div id="footer">
     <div class="container">
-      <p class="footer-block">MARKET CONNECTION &#x24B8; Copyright 2017 Ryan Judy.</p>
+      <div class = "row">
+        <div class= "col-md-8 text-left">
+          <p class="footer-block">MARKET CONNECTION &#x24B8; Copyright 2017 Ryan Judy.</p>
+        </div>
+        <div class = "col-md-4">
+          {{#avm}}
+          <p class ="footer-block">Home Evaluation Last Updated: {{this.avm.eventDate}}
+          {{/avm}}
     </div>
   </div>
+
+  <div class="modal fade" id="contactForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form id="signup" class="signup" name="signup" method="post" action="/signup">  
+      <div class="form-body">
+      <div class="card-form">
+          <div class="modal-title pb-2">Contact a Local Agent
+          </div>
+          <div class="form-body">
+            <div class="row">
+              <input type="text" placeholder="number" name="number"/>
+            </div>
+            <div class="row">
+              <textarea type="message" placeholder="message"  class="text" name="message"></textarea> 
+            </div>
+          </div>
+          <div class="rule"></div>
+          <div class="form-footer">
+            <input class="btn submit" type="submit" value="GO" />
+          </div>
+    </form>
+        </div>
+        </div>
+      </div>
+    </div>
 
     <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
