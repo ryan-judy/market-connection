@@ -1,5 +1,24 @@
 $(document).ready(function() {
 
+$('input[type="range"]').rangeslider();
+
+$(window).on('resize', function() {
+    if($(window).width() < 959) {
+        $('.navbar-brand img').attr("src", "./img/location-marker.png");
+        $('#one').removeClass("order-1");
+        $('#one').addClass("order-12");
+        $('#two').removeClass("order-12");
+        $('#two').addClass("order-1");
+    }
+    else {
+        $('.navbar-brand img').attr("src", "./img/location-marker-white.png");
+        $('#two').removeClass("order-12");
+        $('#two').addClass("order-1");
+        $('#one').removeClass("order-1");
+        $('#one').addClass("order-12");
+    }
+});
+
  window.sr = ScrollReveal();
   sr.reveal('.sr-hero', {
     duration: 600,
