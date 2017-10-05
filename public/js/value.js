@@ -1,6 +1,40 @@
 $(document).ready(function() {
 
-$('input[type="range"]').rangeslider();
+var $element = $('input[type="range"]');
+var $ruler = $('<div class="rangeslider__ruler" />');
+
+
+$element
+  .rangeslider({
+    polyfill: false,
+    onInit: function() {
+      var $handle = $('.rangeslider__handle', this.$range);
+      updateHandle($handle[0], this.value);
+      
+    }
+  })
+  .on('input', function(e) {
+    var $handle = $('.rangeslider__handle', e.target.nextSibling);
+    updateHandle($handle[0], this.value, this.min);
+  });
+
+function updateHandle(el, val) {
+  $(".avm-value").html(val);
+   $(".avmInput").attr("value", val);
+
+    var avmInput = $(".avm-input").val().trim();
+    var avmString = numeral(avmInput).format('0,0');
+    $(".avm-value").html("$" + avmString);
+
+    var avmInputLow = $(".avmInputLow").val().trim();
+    var avmString = numeral(avmInputLow).format('0,0');
+    $(".avm-low").html("$" + avmString);
+
+    var avmInputHigh = $(".avmInputHigh").val().trim();
+    var avmString = numeral(avmInputHigh).format('0,0');
+    $(".avm-high").html("$" + avmString);
+
+}
 
 $(window).on('resize', function() {
     if($(window).width() < 959) {
@@ -12,10 +46,10 @@ $(window).on('resize', function() {
     }
     else {
         $('.navbar-brand img').attr("src", "./img/location-marker-white.png");
-        $('#two').removeClass("order-12");
-        $('#two').addClass("order-1");
-        $('#one').removeClass("order-1");
-        $('#one').addClass("order-12");
+        $('#two').removeClass("order-1");
+        $('#two').addClass("order-12");
+        $('#one').removeClass("order-12");
+        $('#one').addClass("order-1");
     }
 });
 
@@ -497,16 +531,5 @@ $(".toggler").click(function(){
 });
 
 
-var avmInput = $(".avmInput").val().trim();
-var avmString = numeral(avmInput).format('0,0');
-$(".avm").html("$" + avmString);
-
-var avmInputLow = $(".avmInputLow").val().trim();
-var avmInputLowString = numeral(avmInputLow).format('0,0');
-$(".avm-low").html("$" + avmInputLowString + " - ");
-
-var avmInputHigh = $(".avmInputHigh").val().trim();
-var avmInputLowString = numeral(avmInputHigh).format('0,0');
-$(".avm-high").html("$" + avmInputLowString);
 
 });

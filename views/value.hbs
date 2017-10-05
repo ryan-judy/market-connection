@@ -44,21 +44,28 @@
               <a href="#" target="_blank" title="View on Google Maps"></a>
             </div>
           </div>
-      <div class="col-sm-6 row--flex__col--center text-picture__text text-center mt-5 sr-hero-cta">
+      <div class="col-sm-6 row--flex__col--center text-picture__text text-center mt-3 sr-hero-cta">
         <h2>Estimated Home Value Range</h2>
-        {{#avm}}        
-          <h2 class = "avm my-2">
+        {{#avm}} 
+          <h2 class = "avm-value my-2">
               <input class = "avmInput" type = "hidden" value = "{{this.avm.amount.value}}">
           </h2>
-          <h3 class = "avm-low">
+          <h4 class = "avm-low"> 
              <input class = "avmInputLow" type = "hidden" value = "{{this.avm.amount.low}}">
-          </h3>
-          <h3 class = "avm-high">
+          </h4><p style="display: inline;"> - </p>
+          <h4 class = "avm-high">
              <input class = "avmInputHigh" type = "hidden" value = "{{this.avm.amount.high}}">
-          </h3>
-          <input type="range" min="{{this.avm.amount.low}}" max="{{this.avm.amount.high}}" step="1000" value="{{this.avm.amount.value}}">
-          <h3 class = "mt-5">Confidence Score: {{this.avm.amount.scr}}%</h3>
-            <p>Based on tax assessments and homes sold near you, this is the accuracy of our home evaluation.</p>          
+          </h4>
+          <div class = "mb-4">
+          </div>
+          <input type="range" class = "avm-input" min="{{this.avm.amount.low}}" max="{{this.avm.amount.high}}" step="1000" value="{{this.avm.amount.value}}"></input>
+          <div class= "row">
+            <div class="col-sm-4 text-left text-white">Bad</div>
+            <div class="col-sm-4 text-white">Good</div>
+            <div class="col-sm-4 text-right text-white">Great</div>
+          </div>
+          <h3 class = "mt-2">Confidence Score: {{this.avm.amount.scr}}%</h3>
+            <p>Based on tax and market data, this is the condifence percentage of our home evaluation. Adjust the slider according to your home's condition for a more accurate evaluation.</p>      
         {{/avm}}
       </div>
     </div>
@@ -164,8 +171,9 @@
 </div>
 </section>
 <section id="trends">
+  <div class = "container">
 <div class="text-picture component">
-    <div class="row row--flex ml-5 mx-5">
+    <div class="row row--flex">
       <div class="col-lg-6 row--flex__col--center text-picture__text text-center">
         <h2 class = "recent-trends">Recent Home Sales Price Trends</h2><h4 class = "subheading">2017 median average price per month.</h4>
         <div class="text-picture__picture">
@@ -183,10 +191,12 @@
         </div>
     </div>
 </div>
+</div>
 </section>
 <section id="units">
-<div class="text-picture component">
-    <div class="row row--flex ml-5 mx-5">
+<div class = "container">
+<div class="text-picture component mt-4">
+    <div class="row row--flex">
             <div class="col-lg-6 order-12 row--flex__col--center text-picture__text text-center" id="two">
         <h2 class = "recent-trends">Recent Home Sales Units </h2><h4 class = "subheading">median average price in your zip code.</h4>
         <div class="text-picture__picture">
@@ -204,6 +214,7 @@
       </div>
 
     </div>
+</div>
 </div>
 </section>
 <section id = "cta">
@@ -265,8 +276,8 @@
     <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.1/rangeslider.min.js"></script>
+  crossorigin="anonymous"></script> 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.0/rangeslider.min.js'></script> 
     <script src='https://maps.google.com/maps/api/js?sensor=false'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
         <script src="./js/value.js"></script>
