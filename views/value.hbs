@@ -20,10 +20,10 @@
               <a class="nav-link js-scroll-trigger" href="#sales">Recent Sales</a>
             </li>                     
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#trends">Price Trends</a>
+              <a class="nav-link js-scroll-trigger" href="#pricetrends">Price Trends</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#forsale">For Sale</a>
+              <a class="nav-link js-scroll-trigger" href="#saletrends">Sale Trends</a>
             </li>
           </ul>
         </div>
@@ -38,7 +38,7 @@
             <h1>{{#avm}}{{this.address}}{{/avm}}</h1>
           </div>
         </div>
-        <div class="row row--flex">
+        <div class="row row--flex mt-3">
           <div class="col-sm-6 text-picture__picture mt-4 sr-hero">
             <div id="info">
               <a href="#" target="_blank" title="View on Google Maps"></a>
@@ -60,12 +60,12 @@
           </div>
           <input type="range" class = "avm-input" min="{{this.avm.amount.low}}" max="{{this.avm.amount.high}}" step="1000" value="{{this.avm.amount.value}}"></input>
           <div class= "row">
-            <div class="col-sm-4 text-left text-white">Bad</div>
-            <div class="col-sm-4 text-white">Good</div>
-            <div class="col-sm-4 text-right text-white">Great</div>
+            <div class="col-sm-4 text-left text-white"><p>Poor</p></div>
+            <div class="col-sm-4 text-white"><p>Good</p></div>
+            <div class="col-sm-4 text-right text-white"><p>Great</p></div>
           </div>
           <h3 class = "mt-2">Confidence Score: {{this.avm.amount.scr}}%</h3>
-            <p>Based on tax and market data, this is the condifence percentage of our home evaluation. Adjust the slider according to your home's condition for a more accurate evaluation.</p>      
+            <p class="title">Based on tax and market data, this is the condifence percentage of our home evaluation. Adjust the slider according to your home's condition for a more accurate evaluation.</p>      
         {{/avm}}
       </div>
     </div>
@@ -73,39 +73,39 @@
 </section>
 <section id="details">
 <div class = "row">
-  <div class = "col-sm-4 mt-5">
+  <div class = "col-sm-4 mt-4">
         <h2>Property Details</h2>
   </div>
   <div class = "col-sm-8">
   </div>
 </div>
-    <div class = "row py-1">
+    <div class = "row py-3">
     {{#avm}}
       <div class = "col-sm-4">
-        <h4>Beds</h4>
+        <h4 class = "title">Beds</h4>
           <p class = "specs">{{this.building.rooms.beds}}</p>
       </div>
       <div class = "col-sm-4"> 
-        <h4>Baths</h4>
+        <h4 class = "title">Baths</h4>
            <p class = "specs">{{this.building.rooms.bathstotal}}</p>
       </div>
       <div class = "col-sm-4">  
-        <h4>Square Footage</h4>
+        <h4 class = "title">Square Footage</h4>
            <p class = "specs">{{this.building.size.bldgsize}} </p>
       </div>
     </div>
-    <div class = "row py-1">
+    <div class = "row pb-3">
       <div class = "col-sm-4">
-        <h4>Year Built</h4>
+        <h4 class = "title">Year Built</h4>
            <p class = "specs">{{this.summary.yearbuilt}} </p>
       </div>
       <div class = "col-sm-4">
-        <h4>Acres</h4>
+        <h4 class = "title">Acres</h4>
            <p class = "specs">{{this.lot.lotsize1}}</p>
       </div>
       <div class = "col-sm-4">
-        <h4>Last Sold For</h4>
-           <p class = "specs">{{this.summary.yearbuilt}}</p>
+        <h4 class = "title">Type</h4>
+           <p class = "specs">{{this.summary.propclass}}</p>
       </div>
     </div>
     {{/avm}}
@@ -114,10 +114,10 @@
 </div>
 </div>
 <section id="sales">
-  <div class = "container">
-<div class="text-picture component mb-2">
-    <div class="row row--flex">
-          <div class="col-sm-6 text-picture__picture pt-5">
+  <div class = "container pb-3">
+<div class="text-picture component">
+    <div class="row row--flex pb-3">
+          <div class="col-sm-6 text-picture__picture pt-4">
                 <h2 class="pb-2 recent-sales">Recent Sales Near You</h2>
                 <h4 class = "subheading pb-3">Find the locations and property details of homes that sold within a mile radius of you in the last year. </h4>
                 <div class="sr-map">
@@ -125,7 +125,7 @@
                 </div>
 
       </div>
-      <div class="col-sm-6 text-center py-5">
+      <div class="col-sm-6 text-center py-4">
         {{#each avm.sale.property}}
         <input type="hidden" class="sale-location-name" value="
           {{this.address.line1}}"></input>
@@ -170,12 +170,12 @@
 </div>
 </div>
 </section>
-<section id="trends">
-  <div class = "container">
+<section id="pricetrends">
+  <div class = "container pt-4">
 <div class="text-picture component">
-    <div class="row row--flex">
+    <div class="row row--flex pb-3">
       <div class="col-lg-6 row--flex__col--center text-picture__text text-center">
-        <h2 class = "recent-trends">Recent Home Sales Price Trends</h2><h4 class = "subheading">2017 median average price per month.</h4>
+        <h2 class = "recent-trends">Home Sales Price Trends</h2><h4 class = "subheading">2017 median average price per month.</h4>
         <div class="text-picture__picture">
           <img src= "./img/home.png" class="img-responsive home-image my-2 sr-home">
         </div>
@@ -193,12 +193,12 @@
 </div>
 </div>
 </section>
-<section id="units">
+<section id="saletrends">
 <div class = "container">
 <div class="text-picture component mt-4">
-    <div class="row row--flex">
+    <div class="row row--flex pb-4">
             <div class="col-lg-6 order-12 row--flex__col--center text-picture__text text-center" id="two">
-        <h2 class = "recent-trends">Recent Home Sales Units </h2><h4 class = "subheading">median average price in your zip code.</h4>
+        <h2 class = "recent-trends">Home Sales Units </h2><h4 class = "subheading">median average price in your zip code.</h4>
         <div class="text-picture__picture">
           <img src= "./img/home-graph.png" class="img-responsive home-image my-2 sr-home">
         </div>
@@ -220,7 +220,7 @@
 <section id = "cta">
   <div class= "row py-4">
     <div class = "col-md-12 text-center">
-      <h2 class = "recent-sales">Question About Your Home's Value?</h2>
+      <h2 class = "recent-sales pt-4">Question About Your Home's Value?</h2>
         <h4 class = "subheading py-1" >Get in contact with one of our local experts.</h4>
     </div>
   </div>
@@ -253,14 +253,14 @@
     <form id="signup" class="signup" name="signup" method="post" action="/signup">  
       <div class="form-body">
       <div class="card-form">
-          <div class="modal-title pb-2">Contact a Local Agent
+          <div class="modal-title pb-3">Contact a Local Agent
           </div>
           <div class="form-body">
             <div class="row">
-              <input type="text" placeholder="number" name="number"/>
+              <input type="text" placeholder="Number" name="number"/>
             </div>
             <div class="row">
-              <textarea type="message" placeholder="message"  class="text" name="message"></textarea> 
+              <textarea type="message" placeholder="Message"  class="text" name="message"></textarea> 
             </div>
           </div>
           <div class="rule"></div>

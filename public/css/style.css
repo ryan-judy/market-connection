@@ -38,8 +38,14 @@ p {
 }
 
 p.specs {
+  font-family: 'Merriweather', serif;
   color: #FCFCFC;
   text-shadow: 1px 1px 1px rgba(150, 150, 150, .75);
+  font-weight: lighter;
+}
+
+h4.title{
+  font-family: 'Merriweather', serif;
   font-weight: lighter;
 }
 
@@ -411,7 +417,7 @@ label,input {
   }
 }
 
-.avm {
+.avm-value {
   font-family: 'Merriweather', serif;
 
 }
@@ -569,14 +575,14 @@ textarea {
 #footer {
     width: 100%;
     position: relative;
-    height: 50px;
+    height: 53px;
     background-color: #3b4552;
     color: #3b4552;
   }
 
 .footer-block {
   color: white;
-  padding-top:5px;
+  padding-top:15px;
   font-family: 'Oxygen', sans-serif;    
 }
 
@@ -665,7 +671,7 @@ textarea {
     color: #fff;
     margin: 0;
     position: relative;
-    top: 5px;
+    top: 4px;
     font-size: 19px;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -734,8 +740,8 @@ textarea {
   background: white;
   cursor: pointer;
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   position: absolute;
   background-size: 100%;
   background-color: white;
@@ -767,7 +773,7 @@ textarea {
   background-size: 100%;
 }
 .rangeslider--horizontal .rangeslider__handle {
-  top: -10px;
+  top: -5px;
   touch-action: pan-y;
   -ms-touch-action: pan-y;
 }
