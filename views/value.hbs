@@ -30,7 +30,7 @@
     </div>
   </nav>
   <div id="color-overlay"></div>
-    <div class="container">
+  <div class="container">
     <section id="value">
       <div class="text-picture hero-padding">
         <div class = "row">
@@ -44,21 +44,22 @@
               <a href="#" target="_blank" title="View on Google Maps"></a>
             </div>
           </div>
-      <div class="col-sm-6 row--flex__col--center text-picture__text text-center mt-3 sr-hero-cta">
-        <h2>Estimated Home Value Range</h2>
-        {{#avm}} 
-          <h2 class = "avm-value my-2">
+          <div class="col-sm-6 row--flex__col--center text-picture__text text-center mt-3 sr-hero-cta">
+            <h2>Estimated Home Value Range</h2>
+              {{#avm}} 
+            <h2 class = "avm-value my-2">
               <input class = "avmInput" type = "hidden" value = "{{this.avm.amount.value}}">
-          </h2>
-          <h4 class = "avm-low"> 
-             <input class = "avmInputLow" type = "hidden" value = "{{this.avm.amount.low}}">
-          </h4><p style="display: inline;"> - </p>
+            </h2>
+            <h4 class = "avm-low"> 
+              <input class = "avmInputLow" type = "hidden" value = "{{this.avm.amount.low}}">
+            </h4>
+            <p style="display: inline;"> - </p>
           <h4 class = "avm-high">
              <input class = "avmInputHigh" type = "hidden" value = "{{this.avm.amount.high}}">
           </h4>
           <div class = "mb-4">
           </div>
-          <input type="range" class = "avm-input" min="{{this.avm.amount.low}}" max="{{this.avm.amount.high}}" step="1000" value="{{this.avm.amount.value}}"></input>
+          <input type="range" class = "avm-input" min="{{this.avm.amount.low}}" max="{{this.avm.amount.high}}" step="1000" value="{{this.avm.amount.value}}">
           <div class= "row">
             <div class="col-sm-4 text-left text-white"><p>Poor</p></div>
             <div class="col-sm-4 text-white"><p>Good</p></div>
@@ -68,17 +69,17 @@
             <p class="title">Based on tax and market data, this is the condifence percentage of our home evaluation. Adjust the slider according to your home's condition for a more accurate evaluation.</p>      
         {{/avm}}
       </div>
-    </div>
-</div>
-</section>
-<section id="details">
-<div class = "row">
-  <div class = "col-sm-4 mt-4">
+  </div>
+  </div>
+  </section>
+  <section id="details">
+    <div class = "row">
+      <div class = "col-sm-4 mt-4">
         <h2>Property Details</h2>
-  </div>
-  <div class = "col-sm-8">
-  </div>
-</div>
+      </div>
+      <div class = "col-sm-8">
+      </div>
+    </div>
     <div class = "row py-3">
     {{#avm}}
       <div class = "col-sm-4">
@@ -109,93 +110,91 @@
       </div>
     </div>
     {{/avm}}
+  </section>
   </div>
-</section>
-</div>
-</div>
-<section id="sales">
+  </div>
+  <section id="sales">
   <div class = "container pb-3">
-<div class="text-picture component">
-    <div class="row row--flex pb-3">
+    <div class="text-picture component">
+      <div class="row row--flex pb-3">
           <div class="col-sm-6 text-picture__picture pt-4">
                 <h2 class="pb-2 recent-sales">Recent Sales Near You</h2>
                 <h4 class = "subheading pb-3">Find the locations and property details of homes that sold within a mile radius of you in the last year. </h4>
                 <div class="sr-map">
                   <div id = "map" style="height: 300px;"></div>
                 </div>
-
-      </div>
+          </div>
       <div class="col-sm-6 text-center py-4">
         {{#each avm.sale.property}}
         <input type="hidden" class="sale-location-name" value="
-          {{this.address.line1}}"></input>
+          {{this.address.line1}}">
         <input type="hidden" class="sale-location-lat" value="
-          {{this.location.latitude}}"></input>
+          {{this.location.latitude}}">
         <input type="hidden" class="sale-location-lon" value="
-            {{this.location.longitude}}"></input>
+            {{this.location.longitude}}">
         <div id="accordion" class = "pr-3" role="tablist">
-  <div class="card">
-    <div class="card-header" role="tab" id="headingOne">
-      <h5 class="mb-0">
-        <a data-toggle="collapse" class="toggler" href="#collapse{{this.identifier.apn}}" aria-expanded="true" aria-controls="collapseOne">
-          {{this.address.line1}}
+      <div class="card">
+        <div class="card-header" role="tab" id="headingOne">
+          <h5 class="mb-0">
+            <a data-toggle="collapse" class="toggler" href="#collapse{{this.identifier.apn}}" aria-expanded="true" aria-controls="collapseOne">
+            {{this.address.line1}}
             <i class= "fa fa-caret-down pl-3 rotate"></i>
-        </a>
-      </h5>
-    </div>
+            </a>
+          </h5>
+        </div>
 
-    <div id="collapse{{this.identifier.apn}}" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
-        <div class = "row">
-          <div class = "col-sm-3">
-             <h6>Sold: ${{this.sale.amount.saleamt}}</h6>
-           </div>
-           <div class = "col-sm-3">
-           <h6> SqFt: {{this.building.size.universalsize}}</h6>
-          </div>
-          <div class = "col-sm-3">
-            <h6>Baths: {{this.building.rooms.bathstotal}}</h6>
-          </div>
-          <div class = "col-sm-3">
-           <h6> Beds: {{this.building.rooms.beds}}</h6>
-          </div>
+      <div id="collapse{{this.identifier.apn}}" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <div class = "row">
+            <div class = "col-sm-3">
+              <h6>Sold: ${{this.sale.amount.saleamt}}</h6>
+            </div>
+            <div class = "col-sm-3">
+              <h6> SqFt: {{this.building.size.universalsize}}</h6>
+            </div>
+            <div class = "col-sm-3">
+              <h6>Baths: {{this.building.rooms.bathstotal}}</h6>
+            </div>
+            <div class = "col-sm-3">
+              <h6> Beds: {{this.building.rooms.beds}}</h6>
+            </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+  </div>
     {{/each}}
       </div>
   </div>
-</div>
-</div>
-</section>
-<section id="pricetrends">
+  </div>
+  </div>
+  </section>
+  <section id="pricetrends">
   <div class = "container pt-4">
-<div class="text-picture component">
-    <div class="row row--flex pb-3">
-      <div class="col-lg-6 row--flex__col--center text-picture__text text-center">
-        <h2 class = "recent-trends">Home Sales Price Trends</h2><h4 class = "subheading">2017 median average price per month.</h4>
-        <div class="text-picture__picture">
-          <img src= "./img/home.png" class="img-responsive home-image my-2 sr-home">
+    <div class="text-picture component">
+      <div class="row row--flex pb-3">
+        <div class="col-lg-6 row--flex__col--center text-picture__text text-center">
+          <h2 class = "recent-trends">Home Sales Price Trends</h2><h4 class = "subheading">2017 median average price per month.</h4>
+          <div class="text-picture__picture">
+            <img src= "./img/home.png" class="img-responsive home-image my-2 sr-home">
+          </div>
         </div>
-      </div>
         <div class="col-lg-6 text-picture__picture">
           <div class="chart-container sr-chart">
-                  <canvas id="canvas"></canvas>
+            <canvas id="canvas"></canvas>
           </div>
           {{#each avm.trends}}
         <input type="hidden" class = "chart"
           value="{{this.SalesTrend.avgsaleprice}}"></input>
         {{/each}}
         </div>
+      </div>
     </div>
-</div>
-</div>
-</section>
-<section id="saletrends">
-<div class = "container">
-<div class="text-picture component mt-4">
+  </div>
+  </section>
+  <section id="saletrends">
+  <div class = "container">
+  <div class="text-picture component mt-4">
     <div class="row row--flex pb-4">
             <div class="col-lg-6 order-12 row--flex__col--center text-picture__text text-center" id="two">
         <h2 class = "recent-trends">Home Sales Units </h2><h4 class = "subheading">median average price in your zip code.</h4>
@@ -212,47 +211,48 @@
           value="{{this.SalesTrend.homesalecount}}"></input>
         {{/each}}
       </div>
-
     </div>
-</div>
-</div>
-</section>
-<section id = "cta">
+  </div>
+  </div>
+  </section>
+  <section id = "cta">
   <div class= "row py-4">
     <div class = "col-md-12 text-center">
       <h2 class = "recent-sales pt-4">Question About Your Home's Value?</h2>
         <h4 class = "subheading py-1" >Get in contact with one of our local experts.</h4>
     </div>
   </div>
-    <div class= "row pb-5">
-      <div class = "col-md-5">
-      </div>
-      <div class = "col-md-2 text-center">   
-         <input type="submit" class="btn btn-primary btn-block sr-button" value="Connect with Us" id="eval" data-toggle="modal" data-target="#contactForm">
-      <div class = "col-md-5">
-      </div>         
+  <div class= "row pb-5">
+    <div class = "col-md-5">
     </div>
+    <div class = "col-md-2 text-center">   
+        <input type="submit" class="btn btn-primary btn-block sr-button" value="Connect with Us" id="eval" data-toggle="modal" data-target="#contactForm">
+    </div>
+    <div class = "col-md-5">
+    </div>         
   </div>
-</section>
+  </section>
 </div>
- <div id="footer">
-    <div class="container">
-      <div class = "row">
-        <div class= "col-md-8 text-left">
-          <p class="footer-block">MARKET CONNECTION &#x24B8; Copyright 2017 Ryan Judy.</p>
-        </div>
-        <div class = "col-md-4">
-          {{#avm}}
-          <p class ="footer-block">Home Evaluation Last Updated: {{this.avm.eventDate}}
-          {{/avm}}
+<div id="footer">
+  <div class="container">
+    <div class = "row">
+      <div class= "col-md-8 text-left">
+        <p class="footer-block">MARKET CONNECTION &#x24B8; Copyright 2017 Ryan Judy.</p>
+      </div>
+      <div class = "col-md-4">
+        {{#avm}}
+        <p class ="footer-block">Home Evaluation Last Updated: {{this.avm.eventDate}}
+        {{/avm}}
+      </div>
     </div>
   </div>
+</div>
 
   <div class="modal fade" id="contactForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <form id="signup" class="signup" name="signup" method="post" action="/signup">  
       <div class="form-body">
-      <div class="card-form">
+        <div class="card-form">
           <div class="modal-title pb-3">Contact a Local Agent
           </div>
           <div class="form-body">
@@ -267,17 +267,17 @@
           <div class="form-footer">
             <input class="btn submit" type="submit" value="GO" />
           </div>
-    </form>
-        </div>
         </div>
       </div>
-    </div>
+    </form>
+  </div>
+  </div>
 
-    <script
+  <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script> 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.0/rangeslider.min.js'></script> 
-    <script src='https://maps.google.com/maps/api/js?sensor=false'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
-        <script src="./js/value.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.0/rangeslider.min.js'></script> 
+  <script src='https://maps.google.com/maps/api/js?sensor=false'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+  <script src="./js/value.js"></script>
